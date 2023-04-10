@@ -1,0 +1,15 @@
+while True:
+    a = int(input('Insira o primeiro inteiro:'))
+    b = int(input('Insira o segundo inteiro:'))
+
+    if a >= b:
+        resultado = a - b
+        print(bin(resultado)[2:])
+    else:
+        if a==0:
+            print('1'+bin(b)[2:])
+        else:
+            a_bits = a.bit_length()
+            complemento_a = (1 << a_bits) - a
+            resultado = "1" + bin((complemento_a + b) & ((1 << a_bits) - 1))[2:]
+            print(resultado)
